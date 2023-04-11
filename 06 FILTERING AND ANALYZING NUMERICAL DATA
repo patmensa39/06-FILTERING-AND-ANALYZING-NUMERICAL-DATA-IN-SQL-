@@ -1,0 +1,52 @@
+-- 06 FILTERING AND ANALYZING NUMERICAL DATA
+/* How many customers purchased two songs for $0.99 each 
+Created by Patrick Mensah 
+Date Created: 04/07/2022
+Description: The query show the customers who purchased two songs at $0.99 each 
+This will also arrange the invoice date by ascending order
+*/
+
+SELECT 
+    InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address', 
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    Total = 1.98
+ORDER BY
+    InvoiceDate
+--- 111 invoices     
+
+
+-- Assusming we want to find how many total invoices exist between $1.98 and $6.00
+SELECT 
+    InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address', 
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    Total BETWEEN 1.98 AND 6.00
+ORDER BY
+    InvoiceDate
+--- 234 invoices 
+
+-- Assusming we want to find how many total invoices do we have that a exactly  $1.98 and $3.96.
+-- We do this by introducing the 'IN' clause 
+SELECT 
+    InvoiceDate AS 'Invoice Date',
+    BillingAddress AS 'Billing Address', 
+    BillingCity AS 'Billing City',
+    Total
+FROM 
+    Invoice
+WHERE 
+    Total IN(1.98,3.96)
+ORDER BY
+    InvoiceDate
+--168 invoices
+
+
